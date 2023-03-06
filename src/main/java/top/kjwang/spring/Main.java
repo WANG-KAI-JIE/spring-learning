@@ -1,4 +1,4 @@
-package top.kjwang;
+package top.kjwang.spring;
 
 /**
  * @author kjwang
