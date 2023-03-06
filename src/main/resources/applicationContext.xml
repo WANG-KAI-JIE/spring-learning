@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    将指定的类配置给Spring，让Spring容器创建其实例-->
+    <bean id="userDao" class="top.kjwang.spring.ioc.UserDaoImpl"></bean>
+
+    <bean id="userService" class="top.kjwang.spring.ioc.UserServiceImpl">
+<!--        将 id 为 userDao 的 Bean 实例 注入到userService 实例-->
+        <property name="userDao" ref="userDao" />
+<!--        构造方法注入-->
+        <constructor-arg name="str" value="让肥猫猫来瞧瞧这是什么东东哇"/>
+    </bean>
+
+    <bean name="cat" class="top.kjwang.spring.ioc.entity.Cat">
+        <property name="name" value="咪咪"></property>
+        <property name="age" value="2"></property>
+    </bean>
+
+    <bean name="dog" class="top.kjwang.spring.ioc.entity.Dog">
+        <property name="name" value="汪汪"></property>
+        <property name="age" value="3"></property>
+    </bean>
+
+    <bean name="book1" class="top.kjwang.spring.ioc.entity.Book">
+        <constructor-arg name="id" value="12345678"></constructor-arg>
+        <constructor-arg name="name" value="肥猫猫学习后端"></constructor-arg>
+        <constructor-arg name="price" value="66.6"></constructor-arg>
+    </bean>
+    <bean name="book2" class="top.kjwang.spring.ioc.entity.Book"/>
+
+    <bean id="skirt" class="top.kjwang.spring.ioc.entity.Clothes">
+        <property name="color" value="红色"/>
+        <property name="style" value="连衣裙"/>
+    </bean>
+
+    <bean id="xizhuang" class="top.kjwang.spring.ioc.entity.Clothes">
+        <property name="color" value="蓝色"/>
+        <property name="style" value="西装"/>
+    </bean>
+
+    <bean id="schoolbag" class="top.kjwang.spring.ioc.entity.SchoolBag">
+        <property name="color" value="灰色"/>
+        <property name="pencilCase" ref="pen"/>
+    </bean>
+
+    <bean id="pen" class="top.kjwang.spring.ioc.entity.Pen">
+        <property name="name" value="{'肥猫猫牌铅笔','大壮牌铅笔','翠花牌钢笔','Jerry牌签字笔'}"/>
+    </bean>
+</beans>
