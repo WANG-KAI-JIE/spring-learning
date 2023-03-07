@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class AnnotationAssembleTest {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans6.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/beans6.xml");
         UserController userController = (UserController) applicationContext.getBean("userController");
         userController.save();
     }
