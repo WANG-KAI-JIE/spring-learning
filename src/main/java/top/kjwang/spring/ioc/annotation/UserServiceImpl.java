@@ -8,10 +8,14 @@ import org.springframework.stereotype.Service;
  * @Date 2023/3/6 22:22
  */
 
-@Service("userService")
+@Service("userService ")
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     public void save(){

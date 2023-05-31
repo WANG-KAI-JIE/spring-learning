@@ -12,6 +12,11 @@
 <!--    <bean id="userController" class="top.kjwang.spring.ioc.annotation.UserController"/>-->
 
 <!--    使用 context 命名空间，通知Spring扫描指定包下所有Bean类，进行注解解析-->
-    <context:component-scan base-package="top.kjwang.spring.ioc.annotation"/>
+<!--    <context:component-scan base-package="top.kjwang.spring.ioc.annotation"/>-->
+
+<!--    使用bean元素的autowire属性完成自动装配-->
+    <bean id="userDao" class="top.kjwang.spring.ioc.annotation.UserDaoImpl"/>
+    <bean id="userService" class="top.kjwang.spring.ioc.annotation.UserServiceImpl" autowire="byName"/>
+    <bean id="userController" class="top.kjwang.spring.ioc.annotation.UserController" autowire="byName"/>
 
 </beans>
